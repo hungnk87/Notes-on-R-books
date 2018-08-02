@@ -1,8 +1,6 @@
 ---
-title: "ggplot2 - Elegant Graphics for Data Analysis"
-output:
-  html_document:
-    toc: yes
+title: "Notes on ggplot2 - Elegant Graphics for Data Analysis"
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -213,7 +211,7 @@ Geometric objects, or **geoms** for short, perform the actual rendering of the l
 You might find it surprising that axes and legends are the same type of thing, but while they look very different there are many natural correspondences between the two, as shown in table and figure below.
 
 ```{r guides, echo=FALSE}
-knitr::include_graphics("/Users/hungnguyenkhanh/Desktop/Data Science/! ggplot2 - Elegant Graphics for Data Analysis/scale-guides.png")
+knitr::include_graphics("scale-guides.png")
 ```
 
 | Axis              | Legend        | Argument name
