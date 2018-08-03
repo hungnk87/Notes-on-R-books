@@ -266,16 +266,19 @@ Another solution is to use `bin` in `geom_bin2d()` and `geom_hex()` (required pa
 ggplot(data = smaller) +
     geom_hex(mapping = aes(x = carat, y = price))
 ```
+
 Another option is to bin one continuous variable so it acts like a categorical variable. Then you can use one of the techniques for visualizing the combination of a categorical and a continuous variable
 ```{r 2continuous1, fig.height = 2.5, fig.width=5, fig.align='center', cached = TRUE}
 ggplot(data = smaller, mapping = aes(x = carat, y = price)) +
     geom_boxplot(mapping = aes(group = cut_width(carat, 0.1)))
 ```
+
 `cut_width(x, width)`, divides x into bins of width width. By default, boxplots look roughly the same (apart from the number of outliers) regardless of how many observations there are, so it’s difficult to tell that each boxplot summarizes a different number of points. One way to show that is to make the width of the box‐plot proportional to the number of points with `varwidth = TRUE`.
 ```{r 2continuous2, fig.height = 2.5, fig.width=5, fig.align='center', cached = TRUE}
 ggplot(data = smaller, mapping = aes(x = carat, y = price)) +
     geom_boxplot(mapping = aes(group = cut_width(carat, 0.1)), varwidth = TRUE)
 ```
+
 Another approach is to display approximately the same number of points in each bin. That’s the job of `cut_number()`:
 ```{r 2continuous3, fig.height = 2.5, fig.width=5, fig.align='center', cached = TRUE}
 ggplot(data = smaller, mapping = aes(x = carat, y = price)) +
@@ -751,6 +754,7 @@ p2 <- relig %>% mutate(relig = fct_reorder(relig, tvhours)) %>%
   ggplot(aes(tvhours, relig)) + geom_point()
 grid.arrange(p1, p2, nrow=1)          
 ```
+
 In order to pull certain variables to the front you can use `fct_relevel()`. It takes a factor, `f`, and then any number of levels that you want to move:
 ```{r gss3, fig.align="center", fig.height=3, cached = TRUE}
 rincome <- gss_cat %>%
@@ -887,6 +891,7 @@ A handy reference sheet with *Help → Markdown Quick Reference*.
 Shortcut to include code chunks: Cmd + Option + I
 
 Chunk output can be customized with options, arguments supplied to the chunk header. **knitr** provides almost 60 options that you can use to customize your code chunks. The following table summarizes which types of output each option suppressess: 
+
 ```{r chunk_options, out.width = "500px", fig.align="center", cached = TRUE, echo=FALSE}
 knitr::include_graphics("chunk_options.png")
 ```

@@ -287,21 +287,27 @@ ggplot(data = smaller) +
     geom_hex(mapping = aes(x = carat, y = price))
 ```
 
-<img src="R_for_Data_Science_files/figure-markdown_github/geom_hex-1.png" style="display: block; margin: auto;" /> Another option is to bin one continuous variable so it acts like a categorical variable. Then you can use one of the techniques for visualizing the combination of a categorical and a continuous variable
+<img src="R_for_Data_Science_files/figure-markdown_github/geom_hex-1.png" style="display: block; margin: auto;" />
+
+Another option is to bin one continuous variable so it acts like a categorical variable. Then you can use one of the techniques for visualizing the combination of a categorical and a continuous variable
 
 ``` r
 ggplot(data = smaller, mapping = aes(x = carat, y = price)) +
     geom_boxplot(mapping = aes(group = cut_width(carat, 0.1)))
 ```
 
-<img src="R_for_Data_Science_files/figure-markdown_github/2continuous1-1.png" style="display: block; margin: auto;" /> `cut_width(x, width)`, divides x into bins of width width. By default, boxplots look roughly the same (apart from the number of outliers) regardless of how many observations there are, so it’s difficult to tell that each boxplot summarizes a different number of points. One way to show that is to make the width of the box‐plot proportional to the number of points with `varwidth = TRUE`.
+<img src="R_for_Data_Science_files/figure-markdown_github/2continuous1-1.png" style="display: block; margin: auto;" />
+
+`cut_width(x, width)`, divides x into bins of width width. By default, boxplots look roughly the same (apart from the number of outliers) regardless of how many observations there are, so it’s difficult to tell that each boxplot summarizes a different number of points. One way to show that is to make the width of the box‐plot proportional to the number of points with `varwidth = TRUE`.
 
 ``` r
 ggplot(data = smaller, mapping = aes(x = carat, y = price)) +
     geom_boxplot(mapping = aes(group = cut_width(carat, 0.1)), varwidth = TRUE)
 ```
 
-<img src="R_for_Data_Science_files/figure-markdown_github/2continuous2-1.png" style="display: block; margin: auto;" /> Another approach is to display approximately the same number of points in each bin. That’s the job of `cut_number()`:
+<img src="R_for_Data_Science_files/figure-markdown_github/2continuous2-1.png" style="display: block; margin: auto;" />
+
+Another approach is to display approximately the same number of points in each bin. That’s the job of `cut_number()`:
 
 ``` r
 ggplot(data = smaller, mapping = aes(x = carat, y = price)) +
@@ -807,7 +813,9 @@ p2 <- relig %>% mutate(relig = fct_reorder(relig, tvhours)) %>%
 grid.arrange(p1, p2, nrow=1)          
 ```
 
-<img src="R_for_Data_Science_files/figure-markdown_github/gss2-1.png" style="display: block; margin: auto;" /> In order to pull certain variables to the front you can use `fct_relevel()`. It takes a factor, `f`, and then any number of levels that you want to move:
+<img src="R_for_Data_Science_files/figure-markdown_github/gss2-1.png" style="display: block; margin: auto;" />
+
+In order to pull certain variables to the front you can use `fct_relevel()`. It takes a factor, `f`, and then any number of levels that you want to move:
 
 ``` r
 rincome <- gss_cat %>%
@@ -954,7 +962,9 @@ A handy reference sheet with *Help → Markdown Quick Reference*.
 
 Shortcut to include code chunks: Cmd + Option + I
 
-Chunk output can be customized with options, arguments supplied to the chunk header. **knitr** provides almost 60 options that you can use to customize your code chunks. The following table summarizes which types of output each option suppressess: <img src="chunk_options.png" width="500px" style="display: block; margin: auto;" />
+Chunk output can be customized with options, arguments supplied to the chunk header. **knitr** provides almost 60 options that you can use to customize your code chunks. The following table summarizes which types of output each option suppressess:
+
+<img src="chunk_options.png" width="500px" style="display: block; margin: auto;" />
 
 Normally, each knit of a document starts from a completely clean slate. It can be painful if you have some computations that take a long time. The solution is `cache = TRUE`.
 
