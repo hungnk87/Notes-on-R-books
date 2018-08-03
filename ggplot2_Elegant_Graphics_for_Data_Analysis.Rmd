@@ -1,6 +1,6 @@
 ---
 title: "Notes on ggplot2 - Elegant Graphics for Data Analysis"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
